@@ -7,7 +7,7 @@ from typing import Any
 
 class Stack:
     def __init__(self):
-        self.list = list  # todo для стека можно использовать python list
+        self.stack = [] # todo для стека можно использовать python list
 
     def push(self, elem: Any) -> None:
         """
@@ -16,7 +16,7 @@ class Stack:
         :param elem: element to be pushed
         :return: Nothing
         """
-        self.stack = []
+        self.elem = elem
         initial_elem = stack.push(elem)
         print(elem)
         return initial_elem
