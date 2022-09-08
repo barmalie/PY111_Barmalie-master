@@ -33,8 +33,12 @@ class Queue:
         :param ind: index of element (count from the beginning)
         :return: peeked element
         """
-        print(ind)
-        return None
+        self.reversed_index = -ind - 1
+        try:
+            stack[ind]
+        except IndexError:
+            return None
+        return self.my_stack[self.reversed_index]
 
     def clear(self) -> None:
         """
@@ -42,4 +46,5 @@ class Queue:
 
         :return: None
         """
+        self.my_stack.clear()
         return None
