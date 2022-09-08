@@ -20,7 +20,7 @@ class PriorityQueue:
         self.priority = priority
 
         priority.priority_queue.append(ind, elem)
-        return None
+        return 0
 
     def dequeue(self, ind: int) -> Any:
         """
