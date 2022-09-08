@@ -15,7 +15,7 @@ class Queue:
         :param elem: element to be added
         :return: Nothing
         """
-        self.my_queue.append()
+        self.my_queue.insert(0, elem)
         print(elem)
         return None
 
@@ -36,11 +36,12 @@ class Queue:
         :param ind: index of element (count from the beginning)
         :return: peeked element
         """
-        self.reversed_index = -ind - 1
+
         try:
-            queue[ind]
-        except IndexError:
-            return None
+            self.my_queue[ind]
+        except: IndexError
+        return None
+        self.reversed_index = -ind - 1
         return self.my_queue[self.reversed_index]
 
     def clear(self) -> None:
