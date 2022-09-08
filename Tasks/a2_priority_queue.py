@@ -10,18 +10,19 @@ class PriorityQueue:
     def __init__(self):
         self.pr_queue = {} # todo для очереди можно использовать python dict
 
-    def enqueue(self, key: int, elem: Any, priority: int = 0) -> None:
+    def enqueue(self, ind: int, elem: Any, priority: int = 0) -> None:
         """
         Operation that add element to the end of the queue
 
         :param elem: element to be added
         :return: Nothing
         """
+        self.priority = priority
 
-        self.pr_queue.append(key)
+        priority.pr_queue.append(ind, elem)
         return None
 
-    def dequeue(self, key: int) -> Any:
+    def dequeue(self, ind: int) -> Any:
         """
         Return element from the beginning of the queue. Should return None if not elements.
 
@@ -35,6 +36,7 @@ class PriorityQueue:
         :param ind: index of element (count from the beginning)
         :return: peeked element
         """
+
         return None
 
     def clear(self) -> None:
