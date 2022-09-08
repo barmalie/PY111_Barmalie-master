@@ -6,7 +6,7 @@ from typing import Any
 
 class Queue:
     def __init__(self):
-        self.my_queue = []  # todo для очереди можно использовать python list
+        self.my_queue = ()  # todo для очереди можно использовать python list
 
     def enqueue(self, elem: Any) -> None:
         """
@@ -15,7 +15,7 @@ class Queue:
         :param elem: element to be added
         :return: Nothing
         """
-        self.elem = my_queue.append()
+        self.my_queue.append()
         print(elem)
         return None
 
@@ -38,10 +38,10 @@ class Queue:
         """
         self.reversed_index = -ind - 1
         try:
-            stack[ind]
+            queue[ind]
         except IndexError:
             return None
-        return self.my_stack[self.reversed_index]
+        return self.my_queue[self.reversed_index]
 
     def clear(self) -> None:
         """
@@ -49,5 +49,5 @@ class Queue:
 
         :return: None
         """
-        self.my_stack.clear()
+        self.my_queue.clear()
         return None
