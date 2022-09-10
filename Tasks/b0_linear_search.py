@@ -9,4 +9,4 @@ def min_search(arr: Sequence) -> int:
     list_num = list(enumerate(arr,0))
     min_ = min(list_num, key=lambda i:i[1])
     print(min_)
-     return min_
+    return min_[0]
