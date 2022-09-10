@@ -2,8 +2,7 @@
 This module implements some functions based on linear search algo
 """
 from typing import Sequence
-#
-#
+
 def min_search(arr: Sequence) -> int:
 
     list_num = list(enumerate(arr,0))
