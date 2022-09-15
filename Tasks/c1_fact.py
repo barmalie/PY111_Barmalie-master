@@ -4,6 +4,9 @@ def factorial_recursive(n: int) -> int:
     :param n: int > 0
     :return: factorial of n
     """
+    bad_variant = []
+    good_variant = []
+    for i in cost_variant =
     print(n)
     return 0
 
