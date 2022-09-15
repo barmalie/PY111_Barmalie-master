@@ -29,10 +29,32 @@ def fib_iterative(n: int) -> int:
     a = 0
     b = 1
     for i in range(1,n):
-        a = b
-        sum_ = a + b
-        b =sum_
+        # a = b
+        # sum_ = a + b
+        # b =sum_
+        a, b = b, a+b
         return b
+    def generator_fib(n):
+        if n<0:
+            raise  ValueError
+            a = 0
+            yield a
+
+            b = 1
+            yield b
+        for _ in range(1,n):
+            a,b = b ,a +b
+        yield b
+        N =10
+        #list_fin_iterative =[fib_iterative(i) for i in range(N)]
+        list_fin_iterative =[]
+        for i in range(N):
+            current_number = fib_iterative(i)
+            list_fin_iterative.append(current_number) #O(n^2)
+        list_generator = [num for num in generator_fib(N-1)]
+        generator = generator_fib(N-1)
+        for _ in range(N):
+            current_number = next(generator) #O(N)
 
 # from functools import reduce
 # ## Данные
