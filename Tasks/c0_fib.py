@@ -5,7 +5,7 @@ def fib_recursive(n: int) -> int:
     :param n: number of item
     :return: Fibonacci number
     """
-    if < 0:
+    if n < 0:
         raise ValueError
     if n == 0:
         return 0
@@ -20,7 +20,7 @@ def fib_iterative(n: int) -> int:
     :param n: number of item
     :return: Fibonacci number
     """
-    if < 0:
+    if n < 0:
         raise ValueError
     if n == 0:
         return 0
@@ -29,8 +29,8 @@ def fib_iterative(n: int) -> int:
     a = 0
     b = 1
     for i in range(1,n):
-        sum_ = a + b
         a = b
+        sum_ = a + b
         b =sum_
         return b
 
