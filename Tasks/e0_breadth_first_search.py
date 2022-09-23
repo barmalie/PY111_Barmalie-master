@@ -11,6 +11,7 @@ def bfs(g: nx.Graph, start_node: Hashable) -> List[Hashable]:
     :param start_node: starting node for search
     :return: list of nodes in the visited order
     """
+    draw_graph(g)
     path_node = []
     visited_node = {node: False for node in g.nodes}
     wait_nodes = deque()
@@ -35,4 +36,4 @@ def draw_graph(graph):
     nx.draw_networkx_nodes(graph, pos)
     nx.draw_networkx_labels(graph, pos)
 
-    for edge in graph.edges:
+    for edge in graph.edges: #  кусок в лекции застрял
