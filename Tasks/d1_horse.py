@@ -15,10 +15,10 @@ def calculate_paths(shape: (int, int), point: (int, int)) -> int:
             return 0
         if not 0 <= i < cols: # выпали за строки
             return 0
-        return 1
+        return sum(get_step(i-2, j+1), get_step(i-2, j-1), get_step(i-1, j-2), get_step(i+1, j-2))
 
 
-    return
+    return get_step(i= point[0], j = point[1])
 
 if __name__ == "__main__":
     assert 2 == calculate_paths()
