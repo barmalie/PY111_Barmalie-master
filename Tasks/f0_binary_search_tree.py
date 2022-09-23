@@ -2,30 +2,30 @@
 You can do it either with networkx ('cause tree is a graph)
 or with dicts (smth like {'key': 0, value: 123, 'left': {...}, 'right':{...}})
 """
-node = {
-    "key":
-    "value":
-    "left":
-    "rigth":
-}
-
-root = {
-    "key": 8,
-
-    "left": None {"key": 8,
-                    "value": 3,
-                    "left": None,
-                    "rigth": None,
-                   }
-    "rigth": None,
-}
+# node = {
+#     "key":
+#     "value":
+#     "left":
+#     "rigth":
+# }
+#
+# root = {
+#     "key": 8,
+#
+#     "left": None {"key": 8,
+#                     "value": 3,
+#                     "left": None,
+#                     "rigth": None,
+#                    }
+#     "rigth": None,
+# }
 from typing import Any, Optional, Tuple
 # import networkx as nx
 
 
 class BinarySearchTree:
     @staticmethod
-    def _create_node(key:, value:Any, left:Optional[dict],rigth:Optional[dict],):
+    def _create_node(key:key, value:Any, left:Optional[dict],rigth:Optional[dict],):
         return { "key":key,
                "value": value,
                 "left": left,
