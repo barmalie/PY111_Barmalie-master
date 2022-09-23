@@ -1,43 +1,43 @@
-from typing import Hashable, List
-import networkx as nx
-
-
-def dfs(g: nx.Graph, start_node: Hashable) -> List[Hashable]:
-    """
-    Do an depth-first search and returns list of nodes in the visited order
-
-    :param g: input graph
-    :param start_node: starting node of search
-    :return: list of nodes in the visited order
-    """
-    draw_graph(g)
-    path_node = []
-    visited_node = {node: False for node in g.nodes}
-    wait_nodes = []#deque()
-    wait_nodes.append(start_node)
-    visited_node[start_node] = True
-    while wait_nodes:
-        current_node = wait_nodes.pop()  # забираем первый элемент start_node
-        path_node.append(current_node)
-
-        neighbours = g[current_node]
-        for neighbour in neighbours:
-            if not visited_node[neighbour]:
-                wait_nodes.append(neighbour)  # список подожженных(подожгли соседа)
-                visited_node[neighbour] = True
-
-    #print(g, start_node)
-    return (path_node)
-
-
-def draw_graph(graph):
-    pos = nx.spring_layout(graph)
-    nx.draw_networkx_nodes(graph, pos)
-    nx.draw_networkx_labels(graph, pos)
-
-    for edge in graph.edges:  # кусок в лекции застрял
-    print(g, start_node)
-    return list(g.nodes)
+# from typing import Hashable, List
+# import networkx as nx
+#
+#
+# def dfs(g: nx.Graph, start_node: Hashable) -> List[Hashable]:
+#     """
+#     Do an depth-first search and returns list of nodes in the visited order
+#
+#     :param g: input graph
+#     :param start_node: starting node of search
+#     :return: list of nodes in the visited order
+#     """
+#     draw_graph(g)
+#     path_node = []
+#     visited_node = {node: False for node in g.nodes}
+#     wait_nodes = []#deque()
+#     wait_nodes.append(start_node)
+#     visited_node[start_node] = True
+#     while wait_nodes:
+#         current_node = wait_nodes.pop()  # забираем первый элемент start_node
+#         path_node.append(current_node)
+#
+#         neighbours = g[current_node]
+#         for neighbour in neighbours:
+#             if not visited_node[neighbour]:
+#                 wait_nodes.append(neighbour)  # список подожженных(подожгли соседа)
+#                 visited_node[neighbour] = True
+#
+#     #print(g, start_node)
+#     return (path_node)
+#
+#
+# def draw_graph(graph):
+#     pos = nx.spring_layout(graph)
+#     nx.draw_networkx_nodes(graph, pos)
+#     nx.draw_networkx_labels(graph, pos)
+#
+#     for edge in graph.edges:  # кусок в лекции застрял
+#     print(g, start_node)
+#     return list(g.nodes)
 #________________________________________________________________
 #copypaste
 # def dfs(graph, start, visited=None):
@@ -113,3 +113,44 @@ def draw_graph(graph):
 # 		for index in tmp:
 # 			search_queue.appendleft(index)
 # 			visited.append(person)
+#_________________________________________________________
+
+adj_list = []
+s = 0
+# def dfs(v):  # dfs is an acronym for "depth-first search"
+#     for w in adj_list[v]:  # переменная w пробегает всех соседей вершины v
+#         dfs(w)
+
+
+# n = 10
+# visited = [False] * n  # массив "посещена ли вершина?"
+#
+# def dfs(v):
+#     visited[v] = True
+#     for w in adj_list[v]:
+#         if visited[w] == False:  # посещён ли текущий сосед?
+#             dfs(w)
+#
+#
+#
+#
+# dfs(s)
+# print(visited.count(True))
+# _____________________________
+#рекурсия
+def dfs(g: nx.Graph, start_node: Hashable) -> List[Hashable]:
+    draw_graph(g)
+    path_node = []
+    visited_nodes = {node: False for node in g.nodes}
+    wait_nodes = []#deque()
+
+    def recursion_dfs(current_node):
+        if visited_nodes[current_node]:
+            return None
+        visited_nodes[current_node] = True
+        path_node.append(current_node)
+        neighbours = g[current_node]
+        for neighbour in neighbours:
+            if not visited_nodes[neighbour]:
+                recursion_dfs(neighbour)
+        return path_node
