@@ -3,6 +3,8 @@ import networkx as nx
 from collections import deque
 import matplotlib.pyplot as plt
 
+#алгоритм обхода в ширину
+
 def bfs(g: nx.Graph, start_node: Hashable) -> List[Hashable]:
     """
     Do an breadth-first search and returns list of nodes in the visited order
