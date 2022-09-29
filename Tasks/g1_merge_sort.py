@@ -47,10 +47,10 @@ from operator import lt, gt
 #     print(min(list_))
 #     print(reversed(sort(list_)))
 
-def merge(left,right):
-    right_index, left_index =0, 0
+def merge(left, right):
+    right_index, left_index = 0, 0
     list = []
-    while len(right_index) < len(left) and len(right_index) < len(right):
+    while len(right_index) < len(right) and len(left_index) < len(right):
         if left_index(left) < right_index(right):
             list.append(right_index)
             left_index += 1
@@ -64,4 +64,11 @@ def merge(left,right):
 
 
 
-def megre_sort():
+def merge_sort(array):
+    if len(array) <= 1:# базовый случай
+        return array
+    half = len(array) // 2
+    left = merge_sort(array[:half])
+    right = merge_sort(array[half:])
+
+    return merge_sort(left, right)
