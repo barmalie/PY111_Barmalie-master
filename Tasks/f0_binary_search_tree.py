@@ -25,8 +25,8 @@ from typing import Any, Optional, Tuple
 
 class BinarySearchTree:
     @staticmethod
-    def _create_node(key:key, value:Any, left:Optional[dict],rigth:Optional[dict],):
-        return { "key":key,
+    def _create_node(key: Any, value: Any, left: Optional[dict], right: Optional[dict],):
+        return {"key": key,
                "value": value,
                 "left": left,
                 "right": right,
@@ -41,7 +41,7 @@ class BinarySearchTree:
             while True:
                 current_key = current_node["key"]
                 if key > current_key: # уходим в правое полудерево
-                    right_node = current_node["right"]:
+                    right_node = current_node["right"]
                     if right_node is None:
                         current_node["right"] = self._create_node(key, value)
                         break
