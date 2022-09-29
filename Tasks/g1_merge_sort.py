@@ -89,16 +89,16 @@ def merge_function(sorted_left, sorted_right):
             sorted_result.append(current_right_value)
             current_right_index += 1
             # прописываем алгоритм для заброски в массив последнего числа
-        if current_right_index == len(sorted_left):
+        if current_left_index == len(sorted_left):# левая часть закончилась
             sorted_result.extend(sorted_right[current_right_index:])
             break
 
-        elif current_right_index == len(sorted_right):
-            sorted_result.extend(sorted_left[current_right_index:])
+        elif current_right_index == len(sorted_right):# правая часть закончилась
+            sorted_result.extend(sorted_left[current_left_index:])
             # sorted_result = sorted_result + sorted_right
             break
 
-    return  sorted_result
+    return sorted_result
 
 def sort(container):
     # терминальный случай
@@ -109,4 +109,4 @@ def sort(container):
     right_part = sort(container[middle_index:])
     # обход в глубину
     # в данной функции сделали разбиение
-    return merge_func(left_part, right_part)
+    return sort(left_part, right_part)
