@@ -22,8 +22,10 @@ def sort(container: List[int]) -> List[int]:
     #
     # #return container
     #             print(container)
+    offset = 1# введение
     for _ in range(len(container)):
-        for i in range(len(container)-1):
+        for i in range(len(container)-offset):# применение вместо минус 1
             if container[i] > container[i+1]:
                 container[i],container[i+1] = container[i +1],container[i]
+        offset += 1#добавление при каждой итерации
     return container
