@@ -35,12 +35,12 @@ class BinarySearchTree:
         self.root:Optional[dict]=None
     def insert(self, key: int, value: Any) -> None:
         if self.root is None:
-            self.root = self._create_node(key,value)
+            self.root = self._create_node(key, value)
         else:
             current_node = self.root
             while True:
                 current_key = current_node["key"]
-                if key > current_key: # уходим в правое полудерево
+                if key > current_key:# уходим в правое полудерево
                     right_node = current_node["right"]
                     if right_node is None:
                         current_node["right"] = self._create_node(key, value)
