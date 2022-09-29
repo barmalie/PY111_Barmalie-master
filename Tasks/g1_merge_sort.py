@@ -1,8 +1,9 @@
 from typing import List
 from random import randint
+from operator import lt, gt
 
 
-def sort(container: List[int]) -> List[int]:
+def sort(container: List[int], ascending: bool = True) -> List[int]:
     """
     Sort input container with merge sort
     Сортировка миграцией
@@ -23,9 +24,25 @@ def sort(container: List[int]) -> List[int]:
     # #return container
     #             print(container)
     offset = 1# введение
+    #ascending
+    compare_operator = gt if ascending else lt
     for _ in range(len(container)):
+        is_change = False# (модернизация)не было ни одной замены элемента, список изначально отсортирован
+
         for i in range(len(container)-offset):# применение вместо минус 1
-            if container[i] > container[i+1]:
-                container[i],container[i+1] = container[i +1],container[i]
+            #if container[i] > container[i+1]:
+            if compare_operator(container[i],container[i+1]):
+                container[i], container[i+1] = container[i +1],container[i]
+                is_change = True# модернизация
+        if not is_change:
+            break
         offset += 1#добавление при каждой итерации
     return container
+if __name__ =="__main__":
+    list_ = [1,24,3,41,5,67]
+    sorted = sort(list_)
+    print(sorted)
+    print(sort(list_, ascending=False))
+    print(max(list_))
+    print(min(list_))
+    print(reversed(sort(list_)))
